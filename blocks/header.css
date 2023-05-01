@@ -5,6 +5,7 @@
   max-width: 880px;
   position: relative;
   padding-bottom: 41px;
+  display: grid;
 }
 
 @media screen and (max-width: 620px) {
