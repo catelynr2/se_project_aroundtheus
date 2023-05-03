@@ -41,3 +41,8 @@
   height: 18px;
   border: 0;
 }
+
+.card__like-button:hover {
+  background: url(../images/heart-hover.svg) center no-repeat;
+  cursor: pointer;
+}

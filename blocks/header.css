@@ -1,17 +1,11 @@
 .header {
   margin: 0 auto;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
   width: 100%;
   max-width: 880px;
   position: relative;
   padding-bottom: 41px;
   display: grid;
-}
-
-@media screen and (max-width: 620px) {
-  .header {
-    padding-bottom: 32px;
-  }
 }
 
 @media screen and (max-width: 919px) {
