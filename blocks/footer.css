@@ -10,7 +10,6 @@
 }
 
 .footer__copyright {
-  max-width: 318px;
   margin: 0;
 }
 
@@ -27,5 +26,7 @@
     font-size: 14px;
     line-height: 17px;
     max-width: 282px;
+    margin-top: 48px;
+    margin-bottom: 36px;
   }
 }
