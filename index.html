@@ -114,23 +114,27 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button" id="modal-close-button"></button>
+        <button
+          type="button"
+          class="modal__close-button"
+          id="modal-close-button"
+        ></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
           <input
             type="text"
             class="title"
-            id="title"
+            id="profile-title-input"
             name="title"
-            placeholder="Jacques Cousteau"
+            placeholder="title"
             required
           />
           <input
             type="text"
             class="description"
-            id="description"
+            id="profile-description-input"
             name="description"
-            placeholder="Explorer"
+            placeholder="descripton"
             required
           />
           <button class="modal__save-button">Save</button>
