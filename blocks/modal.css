@@ -122,6 +122,7 @@
   color: #fff;
   margin: 0;
   padding-top: 10px;
+  position: absolute;
 }
 
 @media screen and (max-width: 630px) {
@@ -131,9 +132,28 @@
     right: 0;
     top: -53.6px;
   }
+  #preview-image-close-button {
+    width: 30px;
+    height: 30px;
+    top: -36px;
+    right: -4px;
+  }
   .modal__container {
     padding: 25px 22px 25px 22px;
     width: 282px;
+  }
+  #modal-image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .modal__preview-image {
+    position: relative;
+    margin: auto 40px auto 40px;
+  }
+  .modal__preview-image-name {
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
   .modal__heading {
     margin-bottom: 75px;

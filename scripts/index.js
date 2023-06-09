@@ -50,7 +50,7 @@ const cardTitleInput = addCardForm.querySelector("#add-card-title-input");
 const cardUrlInput = addCardForm.querySelector("#add-card-url-input");
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageCloseButton = previewImageModal.querySelector(
-  "#modal-close-button"
+  ".modal__close-button"
 );
 const cardListElement = document.querySelector(".cards__list");
 const cardTemplate =
