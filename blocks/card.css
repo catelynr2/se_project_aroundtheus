@@ -11,6 +11,10 @@
   border-radius: 10px 10px 0 0;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__description {
   background-color: white;
   color: #000;
@@ -53,11 +57,13 @@
 }
 
 .card__delete-button {
-  background: transparent url(../images/Trash.svg) center no-repeat;
-  border: none;
+  background: transparent url("../images/Trash.svg") center no-repeat;
   width: 18px;
-  height: 19.3px;
-  margin: 18px 15px 0 249px;
+  height: 18px;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 5px;
   transition: opacity 1s ease;
 }
 

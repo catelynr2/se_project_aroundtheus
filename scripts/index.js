@@ -48,6 +48,10 @@ const addCardModalCloseButton = addNewCardModal.querySelector(
 const addCardForm = addNewCardModal.querySelector(".modal__form");
 const cardTitleInput = addCardForm.querySelector("#add-card-title-input");
 const cardUrlInput = addCardForm.querySelector("#add-card-url-input");
+const previewImageModal = document.querySelector("#preview-image-modal");
+const previewImageCloseButton = previewImageModal.querySelector(
+  "#modal-close-button"
+);
 const cardListElement = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -116,6 +120,9 @@ editModalCloseButton.addEventListener("click", () =>
 );
 addCardModalCloseButton.addEventListener("click", () =>
   closePopUp(addNewCardModal)
+);
+previewImageCloseButton.addEventListener("click", () =>
+  closePopUp(previewImageModal)
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
