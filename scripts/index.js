@@ -84,13 +84,14 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  function showPreviewImage({ name, link }) {
-    openModal(previewImageModal);
+  cardImageEl.addEventListener("click", () => {
     const cardImageEl = document.querySelector(".modal__preview-image");
-    cardImageEl.src = link;
-    cardImageEl.alt = name;
-  }
-  cardImageEl.addEventListener("click", () => openModal(previewImageModal));
+    const cardTitleEl = document.querySelector(".modal__preview-image-name");
+    cardImageEl.setAttribute("src", cardImageEl.src);
+    cardImageEl.alt = cardData.name;
+    cardTitleEl.textContent = cardData.name;
+    openModal(document.querySelector("#preview-image-modal"));
+  });
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
