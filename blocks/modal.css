@@ -97,10 +97,21 @@
   cursor: pointer;
 }
 
+#preview-image-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+#modal-image-container {
+  background-color: transparent;
+  padding: 0;
+}
+
 .modal__preview-image {
   max-width: 75vw;
   max-height: 75vh;
-  border-radius: 0;
+  object-fit: contain;
 }
 
 .modal__preview-image-name {
@@ -111,7 +122,6 @@
   color: #fff;
   margin: 0;
   padding-top: 10px;
-  flex-direction: column;
 }
 
 @media screen and (max-width: 630px) {
