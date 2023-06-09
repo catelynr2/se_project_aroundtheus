@@ -83,6 +83,13 @@ function getCardElement(cardData) {
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
+
+  function showPreviewImage({ name, link }) {
+    openModal(previewImageModal);
+    const cardImageEl = document.querySelector(".modal__preview-image");
+    cardImageEl.src = link;
+    cardImageEl.alt = name;
+  }
   cardImageEl.addEventListener("click", () => openModal(previewImageModal));
 
   cardImageEl.src = cardData.link;
