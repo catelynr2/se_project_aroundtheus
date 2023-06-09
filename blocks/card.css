@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  position: relative;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0 0;
+  position: relative;
 }
 
 .card__description {
@@ -42,7 +44,24 @@
   border: 0;
 }
 
+.card__like-button_active {
+  background-image: url(../images/heart-active.svg);
+}
+
 .card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__delete-button {
+  background: url(../images/Trash.svg) center no-repeat;
+  border: none;
+  width: 18px;
+  height: 19.3px;
+  margin: 18px 15px 0 249px;
+}
+
+.card__delete-button:hover {
   opacity: 0.5;
   cursor: pointer;
 }
