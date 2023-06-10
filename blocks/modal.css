@@ -135,8 +135,8 @@
   #preview-image-close-button {
     width: 30px;
     height: 30px;
-    top: -36px;
-    right: -4px;
+    top: 0px;
+    right: -36px;
   }
   .modal__container {
     padding: 25px 22px 25px 22px;
@@ -144,16 +144,14 @@
   }
   #modal-image-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
   }
   .modal__preview-image {
+    max-width: 100%;
     position: relative;
-    margin: auto 40px auto 40px;
-  }
-  .modal__preview-image-name {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
   .modal__heading {
     margin-bottom: 75px;
