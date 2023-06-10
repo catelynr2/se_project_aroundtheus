@@ -43,7 +43,7 @@ const addCardTitleInput = document.querySelector("#add-card-title-input");
 const addCardUrlInput = document.querySelector("#add-card-url-input");
 const addNewCardModal = document.querySelector("#add-new-card-modal");
 const addCardModalCloseButton = addNewCardModal.querySelector(
-  "#modal-close-button"
+  "#add-card-close-button"
 );
 const addCardForm = addNewCardModal.querySelector(".modal__form");
 const cardTitleInput = addCardForm.querySelector("#add-card-title-input");
