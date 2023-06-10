@@ -58,7 +58,7 @@ const cardTemplate =
 
 // Functions
 function fillProfileForm() {
-  profileTitleInput.value = profileTitle.textcontext;
+  profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 }
 
@@ -122,7 +122,10 @@ function handleNewCardSubmit(e) {
 }
 
 // Event Listeners
-profileEditButton.addEventListener("click", () => openModal(profileEditModal));
+profileEditButton.addEventListener("click", () => {
+  openModal(profileEditModal);
+  fillProfileForm();
+});
 
 addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
 
