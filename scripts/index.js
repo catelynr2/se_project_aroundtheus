@@ -57,6 +57,11 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
 // Functions
+function fillProfileForm() {
+  profileTitleInput.value = profileTitle.textcontext;
+  profileDescriptionInput.value = profileDescription.textContent;
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
@@ -112,7 +117,8 @@ function handleNewCardSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListElement);
-  closePopUp(addNewCardModal).reset();
+  addCardForm.reset();
+  closePopUp(addNewCardModal)();
 }
 
 // Event Listeners
