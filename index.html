@@ -57,7 +57,7 @@
         <form class="modal__form" id="profile-edit-form">
           <input
             type="text"
-            class="title"
+            class="modal__input"
             id="profile-title-input"
             name="title"
             placeholder="Title"
@@ -71,7 +71,7 @@
             placeholder="Descripton"
             required
           />
-          <button class="modal__save-button">Save</button>
+          <button class="modal__save-button" type="button">Save</button>
         </form>
       </div>
     </div>
@@ -84,38 +84,46 @@
           class="modal__close-button"
           id="add-card-close-button"
         ></button>
-        <p class="modal__heading">New place</p>
+        <h2 class="modal__heading">New place</h2>
         <form class="modal__form" id="add-card-form">
           <input
             type="text"
-            class="title"
+            class="modal__input"
             id="add-card-title-input"
             name="title"
             placeholder="Title"
             required
           />
           <input
-            type="text"
+            type="url"
             class="description"
             id="add-card-url-input"
             name="url"
             placeholder="Image Link"
             required
           />
-          <button class="modal__save-button">Save</button>
+          <button class="modal__save-button" type="button">Save</button>
         </form>
       </div>
     </div>
 
     <!--Preview image modal-->
-    <div class="modal" id="preview-image-modal">
-      <div class="modal__container" id="modal-image-container">
+    <div class="modal modal_preview-image" id="preview-image-modal">
+      <div
+        class="modal__container modal_image-container"
+        id="modal-image-container"
+      >
         <button
           type="button"
-          class="modal__close-button"
+          class="modal__close-button modal_preview-image-close-button"
           id="preview-image-close-button"
         ></button>
-        <img src="#" alt="" class="modal__preview-image" id="preview-image" />
+        <img
+          src="#"
+          alt=""
+          class="modal__large-view-image"
+          id="preview-image"
+        />
         <div class="modal__preview-image-name"></div>
       </div>
     </div>
@@ -131,6 +139,6 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
