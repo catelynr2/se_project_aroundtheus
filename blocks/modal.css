@@ -103,7 +103,7 @@
   padding: 0;
 }
 
-.modal_image-container {
+.modal__container-image {
   background-color: transparent;
   padding: 0;
   margin: 100%;
@@ -133,7 +133,7 @@
     right: 0;
     top: -53.6px;
   }
-  .modal_preview-image-close-button {
+  .modal__close-button-preview-image {
     width: 30px;
     height: 30px;
     top: -3px;
