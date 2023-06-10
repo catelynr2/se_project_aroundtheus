@@ -106,6 +106,7 @@
 #modal-image-container {
   background-color: transparent;
   padding: 0;
+  margin: 100%;
 }
 
 .modal__preview-image {
@@ -135,8 +136,10 @@
   #preview-image-close-button {
     width: 30px;
     height: 30px;
-    top: 0px;
-    right: -36px;
+    top: -3px;
+    right: -285px;
+    padding: 0;
+    position: relative;
   }
   .modal__container {
     padding: 25px 22px 25px 22px;
@@ -150,8 +153,9 @@
   .modal__preview-image {
     max-width: 100%;
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  }
+  .modal__preview-image-name {
+    position: relative;
   }
   .modal__heading {
     margin-bottom: 75px;
