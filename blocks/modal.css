@@ -76,7 +76,7 @@
   margin-top: 29.74px;
 }
 
-modal__save__button {
+modal__save-button {
   color: #fff;
   background-color: #000;
   width: 100%;
@@ -87,12 +87,12 @@ modal__save__button {
   border: none;
 }
 
-modal__save__button:hover {
+modal__save-button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-modal__save__button_disabled {
+modal__save-button_disabled {
   background-color: #f6f6f6;
   color: #000;
   opacity: 0.2;
@@ -180,7 +180,7 @@ modal__save__button_disabled {
     font-size: 22px;
     line-height: 21.78px;
   }
-  modal__save__button {
+  modal__save-button {
     height: 46px;
     margin-top: 45px;
   }
