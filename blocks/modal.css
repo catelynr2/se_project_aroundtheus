@@ -93,6 +93,27 @@
   cursor: pointer;
 }
 
+.modal__save-button_disabled {
+  background-color: #f6f6f6;
+  color: #000;
+  opacity: 0.2;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #f00;
+  top: calc(100% + 5px);
+  left: 0;
+  transition: opacity 0.3s;
+}
+
+.modal__input_type_error {
+  border-bottom-color: #f00;
+}
+
 .modal_preview-image {
   display: flex;
   flex-direction: column;
