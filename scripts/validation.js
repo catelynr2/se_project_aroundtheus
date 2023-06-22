@@ -42,6 +42,22 @@ function enableButton(formElement, submitButton, configObj) {
   return;
 }
 
+function keyHandler(evt) {
+  if (evt.key === "Escape") {
+    closePopUp(profileEditModal);
+    closePopUp(addNewCardModal);
+  }
+}
+
+const modal = document.querySelectorAll(".modal");
+modal.forEach((modalElement) => {
+  modalElement.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closePopUp(modalElement);
+    }
+  });
+});
+
 function toggleButtonState(inputList, submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
 
@@ -72,6 +88,8 @@ function enableValidation(configObj) {
   const formList = Array.from(
     document.querySelectorAll(configObj.formSelector)
   );
+  document.addEventListener("keydown", keyHandler);
+
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
