@@ -1,5 +1,4 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorClass = configObj.errorClass;
+const showInputError = (formElement, inputElement, { errorClass }) => {
   const inputErrorClass = configObj.inputErrorClass;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
@@ -16,7 +15,7 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.classList.remove(errorClass);
 };
 
-function isValid(formElement, inputElement) {
+function checkInputValidity(formElement, inputElement) {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -42,25 +41,14 @@ function enableButton(formElement, submitButton, configObj) {
   return;
 }
 
-function keyHandler(evt) {
-  if (evt.key === "Escape") {
-    closePopUp(profileEditModal);
-    closePopUp(addNewCardModal);
-  }
-}
-
-const modal = document.querySelectorAll(".modal");
-modal.forEach((modalElement) => {
-  modalElement.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("modal")) {
-      closePopUp(modalElement);
-    }
-  });
-});
+// function closeModalOnRemoteClick(evt) {
+//   if (evt.target === evt.currentTarget) {
+//     closePopUp(evt.target);
+//   }
+// }
 
 function toggleButtonState(inputList, submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
-
   if (hasInvalidInput(inputList)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
@@ -78,7 +66,7 @@ function setEventListeners(formElement, configObj) {
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", (evt) => {
-      isValid(formElement, inputElement, configObj);
+      checkInputValidity(formElement, inputElement, configObj);
       toggleButtonState(inputList, submitButton, configObj);
     });
   });
@@ -88,7 +76,6 @@ function enableValidation(configObj) {
   const formList = Array.from(
     document.querySelectorAll(configObj.formSelector)
   );
-  document.addEventListener("keydown", keyHandler);
 
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {

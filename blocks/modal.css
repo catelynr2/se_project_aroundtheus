@@ -100,6 +100,11 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.modal__save-button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
+}
+
 .modal__error {
   font-size: 12px;
   line-height: 15px;
