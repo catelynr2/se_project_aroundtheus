@@ -123,9 +123,7 @@ function handleNewCardSubmit(e) {
   renderCard({ name, link }, cardListElement);
   addCardForm.reset();
   closePopUp(addNewCardModal);
-  document.getElementById("add-new-card-save-button").onclick = function () {
-    this.disabled = true;
-  };
+  disableButton(submitButton, configObj);
 }
 
 function keyHandler(evt) {
