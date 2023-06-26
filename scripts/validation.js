@@ -38,14 +38,14 @@ function hasInvalidInput(inputList) {
   return !inputList.every((inputElement) => inputElement.validity.valid);
 }
 
-function disableButton(formElement, submitButton, configObj) {
+function disableButton(submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
   submitButton.classList.add(inactiveButtonClass);
   submitButton.disabled = true;
   return;
 }
 
-function enableButton(formElement, submitButton, configObj) {
+function enableButton(submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
   submitButton.classList.remove(inactiveButtonClass);
   submitButton.disabled = false;
@@ -61,13 +61,9 @@ function enableButton(formElement, submitButton, configObj) {
 function toggleButtonState(inputList, submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
   if (hasInvalidInput(inputList)) {
-    disableButton();
-    // submitButton.classList.add(inactiveButtonClass);
-    // submitButton.disabled = true;
+    disableButton(submitButton, configObj);
   } else {
-    enableButton();
-    // submitButton.classList.remove(inactiveButtonClass);
-    // submitButton.disabled = false;
+    enableButton(submitButton, configObj);
   }
 }
 
