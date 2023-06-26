@@ -27,10 +27,10 @@ function checkInputValidity(formElement, inputElement) {
       formElement,
       inputElement,
       inputElement.validationMessage,
-      validationConfig
+      configObj
     );
   } else {
-    hideInputError(formElement, inputElement, validationConfig);
+    hideInputError(formElement, inputElement, configObj);
   }
 }
 
@@ -61,11 +61,13 @@ function enableButton(formElement, submitButton, configObj) {
 function toggleButtonState(inputList, submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
   if (hasInvalidInput(inputList)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+    disableButton();
+    // submitButton.classList.add(inactiveButtonClass);
+    // submitButton.disabled = true;
   } else {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
+    enableButton();
+    // submitButton.classList.remove(inactiveButtonClass);
+    // submitButton.disabled = false;
   }
 }
 
