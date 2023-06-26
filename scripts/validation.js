@@ -1,7 +1,9 @@
-const showInputError = (formElement, inputElement, errorMessage, configObj) => {
-  const inputList = Array.from(
-    formElement.querySelectorAll(configObj.inputSelector)
-  );
+const showInputError = (
+  formElement,
+  inputElement,
+  errorMessage,
+  validationConfig
+) => {
   const errorClass = configObj.errorClass;
   const inputErrorClass = configObj.inputErrorClass;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -21,7 +23,12 @@ const hideInputError = (formElement, inputElement) => {
 
 function checkInputValidity(formElement, inputElement) {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      validationConfig
+    );
   } else {
     hideInputError(formElement, inputElement);
   }
