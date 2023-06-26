@@ -123,7 +123,14 @@ function handleNewCardSubmit(e) {
   renderCard({ name, link }, cardListElement);
   addCardForm.reset();
   closePopUp(addNewCardModal);
-  disableButton(submitButton, configObj);
+  addNewCardButton.addEventListener("click", () => {
+    toggleButtonState(
+      [addCardTitleInput, addCardUrlInput],
+      addNewCardSaveButton,
+      configObj
+    );
+    openModal(addNewCardModal);
+  });
 }
 
 function keyHandler(evt) {

@@ -1,4 +1,8 @@
-const showInputError = (formElement, inputElement, { errorClass }) => {
+const showInputError = (formElement, inputElement, errorMessage, configObj) => {
+  const inputList = Array.from(
+    formElement.querySelectorAll(configObj.inputSelector)
+  );
+  const errorClass = configObj.errorClass;
   const inputErrorClass = configObj.inputErrorClass;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
