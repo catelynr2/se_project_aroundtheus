@@ -4,17 +4,17 @@ const showInputError = (
   errorMessage,
   validationConfig
 ) => {
-  const errorClass = configObj.errorClass;
-  const inputErrorClass = configObj.inputErrorClass;
+  const errorClass = validationConfig.errorClass;
+  const inputErrorClass = validationConfig.inputErrorClass;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
-  const errorClass = configObj.errorClass;
-  const inputErrorClass = configObj.inputErrorClass;
+const hideInputError = (formElement, inputElement, validationConfig) => {
+  const errorClass = validationConfig.errorClass;
+  const inputErrorClass = validationConfig.inputErrorClass;
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove(inputErrorClass);
   errorElement.textContent = "";
@@ -30,7 +30,7 @@ function checkInputValidity(formElement, inputElement) {
       validationConfig
     );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, validationConfig);
   }
 }
 
