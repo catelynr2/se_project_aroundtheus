@@ -134,12 +134,8 @@ function handleNewCardSubmit(e) {
 
 function handleKeyDown(evt) {
   if (evt.key === "Escape") {
-    modal.forEach((modalElement) => {
-      if (modalElement.classList.contains("modal_opened")) {
-        const openModal = document.querySelector(".modal_opened");
-        closePopUp(openModal);
-      }
-    });
+    const openedModal = document.querySelector(".modal_opened");
+    closePopUp(openedModal);
   }
 }
 
