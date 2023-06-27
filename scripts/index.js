@@ -68,10 +68,12 @@ function fillProfileForm() {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleKeyDown);
 }
 
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleKeyDown);
 }
 
 function renderCard(cardData) {
@@ -123,21 +125,19 @@ function handleNewCardSubmit(e) {
   renderCard({ name, link }, cardListElement);
   addCardForm.reset();
   closePopUp(addNewCardModal);
-  addNewCardButton.addEventListener("click", () => {
-    toggleButtonState(
-      [addCardTitleInput, addCardUrlInput],
-      addNewCardSaveButton,
-      configObj
-    );
-    openModal(addNewCardModal);
-  });
+  toggleButtonState(
+    [addCardTitleInput, addCardUrlInput],
+    addNewCardSaveButton,
+    configObj
+  );
 }
 
-function keyHandler(evt) {
+function handleKeyDown(evt) {
   if (evt.key === "Escape") {
     modal.forEach((modalElement) => {
       if (modalElement.classList.contains("modal_opened")) {
-        closePopUp(modalElement);
+        const openModal = document.querySelector(".modal_opened");
+        closePopUp(openModal);
       }
     });
   }
@@ -156,8 +156,6 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
   fillProfileForm();
 });
-
-document.addEventListener("keydown", keyHandler);
 
 addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
 

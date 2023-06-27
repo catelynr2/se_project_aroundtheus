@@ -52,12 +52,6 @@ function enableButton(submitButton, configObj) {
   return;
 }
 
-// function closeModalOnRemoteClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closePopUp(evt.target);
-//   }
-// }
-
 function toggleButtonState(inputList, submitButton, configObj) {
   const inactiveButtonClass = configObj.inactiveButtonClass;
   if (hasInvalidInput(inputList)) {
