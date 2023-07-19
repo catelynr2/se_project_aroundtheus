@@ -179,3 +179,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleNewCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
+
+const addCardFormValidator = new FormValidator(validationConfig, addCardForm);
+
+addCardFormValidator.enableValidation();
