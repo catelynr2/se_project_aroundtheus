@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import { configObj } from "../utils/constants.js";
 
 const initialCards = [
   {
@@ -135,11 +136,11 @@ function handleNewCardSubmit(e) {
   renderCard({ name, link }, cardListElement);
   addCardForm.reset();
   closePopUp(addNewCardModal);
-  toggleButtonState(
-    [addCardTitleInput, addCardUrlInput],
-    addNewCardSaveButton,
-    configObj
-  );
+  // toggleButtonState(
+  //   [addCardTitleInput, addCardUrlInput],
+  //   addNewCardSaveButton,
+  //   configObj
+  // );
 }
 
 function handleKeyDown(evt) {
@@ -180,6 +181,8 @@ addCardForm.addEventListener("submit", handleNewCardSubmit);
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListElement));
 
-const addCardFormValidator = new FormValidator(validationConfig, addCardForm);
+const profileEditFormValidator = new FormValidator(configObj, profileEditForm);
+profileEditFormValidator.enableValidation();
 
+const addCardFormValidator = new FormValidator(configObj, addCardForm);
 addCardFormValidator.enableValidation();
