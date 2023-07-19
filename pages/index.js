@@ -1,6 +1,8 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import { configObj } from "../utils/constants.js";
+import { openModal } from "../utils/utils.js";
+import { closePopUp } from "../utils/utils.js";
 
 const initialCards = [
   {
@@ -137,7 +139,7 @@ function handleNewCardSubmit(e) {
   addCardForm.reset();
   closePopUp(addNewCardModal);
 
-  addCardFormValidator.disableAddCardButton();
+  addCardFormValidator.resetButtonState();
   // toggleButtonState(
   //   [addCardTitleInput, addCardUrlInput],
   //   addNewCardSaveButton,
