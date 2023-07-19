@@ -42,6 +42,10 @@ export default class FormValidator {
     }
   }
 
+  disableAddCardButton() {
+    this._toggleButtonState;
+  }
+
   _checkFormValidity() {
     return this._inputList.every((inputElement) => inputElement.validity.valid);
   }

@@ -136,6 +136,8 @@ function handleNewCardSubmit(e) {
   renderCard({ name, link }, cardListElement);
   addCardForm.reset();
   closePopUp(addNewCardModal);
+
+  addCardFormValidator.disableAddCardButton();
   // toggleButtonState(
   //   [addCardTitleInput, addCardUrlInput],
   //   addNewCardSaveButton,

@@ -26,9 +26,6 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
-    // this._element.querySelector(".card__text").addEventListener("click", () => {
-    //       this._handleMessageClick();
-    //     });
   }
 
   _handleLikeIcon() {
