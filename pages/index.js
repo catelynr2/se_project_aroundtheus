@@ -79,15 +79,15 @@ function fillProfileForm() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", handleKeyDown);
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", handleKeyDown);
+// }
 
-function closePopUp(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleKeyDown);
-}
+// function closePopUp(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", handleKeyDown);
+// }
 
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);

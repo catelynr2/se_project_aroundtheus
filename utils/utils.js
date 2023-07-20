@@ -1,7 +1,3 @@
-const addNewCardModal = document.querySelector("#add-new-card-modal");
-const addCardModalCloseButton = addNewCardModal.querySelector(
-  "#add-card-close-button"
-);
 const previewImageModal = document.querySelector("#preview-image-modal");
 const previewImageCloseButton = document.querySelector(
   "#preview-image-close-button"
