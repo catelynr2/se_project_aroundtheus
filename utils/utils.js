@@ -1,8 +1,3 @@
-const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImageCloseButton = document.querySelector(
-  "#preview-image-close-button"
-);
-
 export function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKeyDown);

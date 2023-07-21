@@ -1,3 +1,5 @@
+import { openModal } from "../utils/utils";
+
 export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
@@ -15,18 +17,30 @@ export default class Card {
 
   _setEventListeners() {
     //".card__like-button"
-    this._cardElement
+    this._likeButton = this._element
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
         this._handleLikeIcon();
       });
     //".card__delete-button"
-    this._cardElement
+    this._cardElement = this._element
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
   }
+    //open preview image
+    const previewImageModal = document.querySelector("#preview-image-modal");
+const previewImageCloseButton = document.querySelector(
+  "#preview-image-close-button"
+);
+const cardImageEl = document.querySelector(".modal__large-view-image");
+    const cardTitleEl = document.querySelector(".modal__preview-image-name");
+
+  this._cardImageEl.querySelector(".modal__large-view-image").addEventListener("click", () => {
+    this._openModal();
+  });
+  // this._cardTitleEl = this._element.querySelector(".modal__preview-image-name");
 
   _handleLikeIcon() {
     this._cardElement
