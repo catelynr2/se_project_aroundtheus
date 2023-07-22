@@ -1,3 +1,5 @@
+const modal = document.querySelectorAll(".modal");
+
 export function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscapeKeyDown);
@@ -14,3 +16,11 @@ export function handleEscapeKeyDown(evt) {
     closePopUp(openedModal);
   }
 }
+
+modal.forEach((modalElement) => {
+  modalElement.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      closePopUp(modalElement);
+    }
+  });
+});

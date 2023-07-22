@@ -1,4 +1,4 @@
-import { openModal } from "../utils/utils";
+import { openModal } from "../utils/utils.js";
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -28,19 +28,21 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
-  }
     //open preview image
     const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImageCloseButton = document.querySelector(
-  "#preview-image-close-button"
-);
-const cardImageEl = document.querySelector(".modal__large-view-image");
+    const previewImageCloseButton = document.querySelector(
+      "#preview-image-close-button"
+    );
+    const cardImageEl = document.querySelector(".modal__large-view-image");
     const cardTitleEl = document.querySelector(".modal__preview-image-name");
 
-  this._cardImageEl.querySelector(".modal__large-view-image").addEventListener("click", () => {
-    this._openModal();
-  });
-  // this._cardTitleEl = this._element.querySelector(".modal__preview-image-name");
+    this._cardImageEl
+      .querySelector(".modal__large-view-image")
+      .addEventListener("click", () => {
+        this._openModal();
+      });
+    // this._cardTitleEl = this._element.querySelector(".modal__preview-image-name");
+  }
 
   _handleLikeIcon() {
     this._cardElement
@@ -51,6 +53,10 @@ const cardImageEl = document.querySelector(".modal__large-view-image");
   _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  _getCardElement(data) {
+    this._element = this._CardElement();
   }
 
   generateCard() {

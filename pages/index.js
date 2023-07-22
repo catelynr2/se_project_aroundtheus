@@ -36,7 +36,7 @@ const cardLoop = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardLoop, "#card-template");
+// const card = new Card(cardLoop, "#card-template");
 
 // Elements
 const modal = document.querySelectorAll(".modal");
@@ -109,7 +109,7 @@ function getCardElement(cardData) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    const cardImageEl = document.querySelector(".modal__large-view-image");
+    // const cardImageEl = document.querySelector(".modal__large-view-image");
     const cardTitleEl = document.querySelector(".modal__preview-image-name");
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
@@ -147,20 +147,20 @@ function handleNewCardSubmit(e) {
   // );
 }
 
-function handleKeyDown(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closePopUp(openedModal);
-  }
-}
+// function handleKeyDown(evt) {
+//   if (evt.key === "Escape") {
+//     const openedModal = document.querySelector(".modal_opened");
+//     closePopUp(openedModal);
+//   }
+// }
 
-modal.forEach((modalElement) => {
-  modalElement.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains("modal")) {
-      closePopUp(modalElement);
-    }
-  });
-});
+// modal.forEach((modalElement) => {
+//   modalElement.addEventListener("mousedown", (evt) => {
+//     if (evt.target.classList.contains("modal")) {
+//       closePopUp(modalElement);
+//     }
+//   });
+// });
 
 // Event Listeners
 profileEditButton.addEventListener("click", () => {
