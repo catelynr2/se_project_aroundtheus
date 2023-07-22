@@ -39,9 +39,14 @@ export default class Card {
     this._cardImageEl
       .querySelector(".modal__large-view-image")
       .addEventListener("click", () => {
+        this._openModal("#preview-image-modal");
+      });
+
+    this._cardTitleEl
+      .querySelector(".modal__preview-image-name")
+      .addEventListener("click", () => {
         this._openModal();
       });
-    // this._cardTitleEl = this._element.querySelector(".modal__preview-image-name");
   }
 
   _handleLikeIcon() {
@@ -55,20 +60,18 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _getCardElement(data) {
-    this._element = this._CardElement();
+  _getCardElement() {
+    this._element = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
   }
 
   generateCard() {
     //get the card
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+    this._cardElement = this._getCardElement;
     //set event listeners
     this._setEventListeners();
-    //return the card
-    this._element = this._getTemplate();
     // Return the element
     return this._cardElement;
   }

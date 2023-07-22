@@ -31,13 +31,6 @@ const initialCards = [
   },
 ];
 
-const cardLoop = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-// const card = new Card(cardLoop, "#card-template");
-
 // Elements
 const modal = document.querySelectorAll(".modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -79,16 +72,6 @@ function fillProfileForm() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 
-// function openModal(modal) {
-//   modal.classList.add("modal_opened");
-//   document.addEventListener("keydown", handleKeyDown);
-// }
-
-// function closePopUp(modal) {
-//   modal.classList.remove("modal_opened");
-//   document.removeEventListener("keydown", handleKeyDown);
-// }
-
 function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardListElement.prepend(cardElement);
@@ -109,7 +92,7 @@ function getCardElement(cardData) {
   });
 
   cardImageEl.addEventListener("click", () => {
-    // const cardImageEl = document.querySelector(".modal__large-view-image");
+    const cardImageEl = document.querySelector(".modal__large-view-image");
     const cardTitleEl = document.querySelector(".modal__preview-image-name");
     cardImageEl.src = cardData.link;
     cardImageEl.alt = cardData.name;
@@ -140,27 +123,7 @@ function handleNewCardSubmit(e) {
   closePopUp(addNewCardModal);
 
   addCardFormValidator.resetButtonState();
-  // toggleButtonState(
-  //   [addCardTitleInput, addCardUrlInput],
-  //   addNewCardSaveButton,
-  //   configObj
-  // );
 }
-
-// function handleKeyDown(evt) {
-//   if (evt.key === "Escape") {
-//     const openedModal = document.querySelector(".modal_opened");
-//     closePopUp(openedModal);
-//   }
-// }
-
-// modal.forEach((modalElement) => {
-//   modalElement.addEventListener("mousedown", (evt) => {
-//     if (evt.target.classList.contains("modal")) {
-//       closePopUp(modalElement);
-//     }
-//   });
-// });
 
 // Event Listeners
 profileEditButton.addEventListener("click", () => {
