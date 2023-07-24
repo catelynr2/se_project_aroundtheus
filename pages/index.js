@@ -73,7 +73,7 @@ function fillProfileForm() {
 }
 
 function renderCard(cardData) {
-  const card = new Card(cardData, cardListElement);
+  const card = new Card(cardData, "#card-template");
   const cardElement = card.generateCard();
   cardListElement.prepend(cardElement);
 }
