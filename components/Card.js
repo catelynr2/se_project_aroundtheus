@@ -61,7 +61,7 @@ export default class Card {
   }
 
   _getCardElement() {
-    this._element = document
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
@@ -69,7 +69,7 @@ export default class Card {
 
   generateCard() {
     //get the card
-    this._cardElement = this._getCardElement;
+    this._cardElement = this._getCardElement();
     //set event listeners
     this._setEventListeners();
     // Return the element
