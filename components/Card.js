@@ -23,7 +23,7 @@ export default class Card {
         this._handleLikeIcon();
       });
     //".card__delete-button"
-    this._cardElement = this._cardElement
+    this._deleteButton = this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
@@ -33,20 +33,36 @@ export default class Card {
     const previewImageCloseButton = document.querySelector(
       "#preview-image-close-button"
     );
-    const cardImageEl = document.querySelector(".modal__large-view-image");
-    const cardTitleEl = document.querySelector(".modal__preview-image-name");
+    // const cardImageEl = document.querySelector(".modal__large-view-image");
+    // const cardTitleEl = document.querySelector(".modal__preview-image-name");
 
-    this._cardImageEl
-      .querySelector(".modal__large-view-image")
-      .addEventListener("click", () => {
-        this._openModal("#preview-image-modal");
-      });
+    this._cardImageEl = this._cardElement.querySelector(
+      ".modal__large-view-image"
+    );
 
-    this._cardTitleEl
-      .querySelector(".modal__preview-image-name")
-      .addEventListener("click", () => {
-        this._openModal();
-      });
+    this._cardImageEl.addEventListener("click", () => {
+      this._openModal("#preview-image-modal");
+    });
+
+    this._cardTitleEl = this._cardElement.querySelector(
+      ".modal__preview-image-name"
+    );
+
+    this._cardTitleEl.addEventListener("click", () => {
+      this._openModal();
+    });
+
+    // this._cardImageEl
+    //   .querySelector(".modal__large-view-image")
+    //   .addEventListener("click", () => {
+    //     this._openModal("#preview-image-modal");
+    //   });
+
+    // this._cardTitleEl
+    //   .querySelector(".modal__preview-image-name")
+    //   .addEventListener("click", () => {
+    //     this._openModal();
+    //   });
   }
 
   _handleLikeIcon() {
