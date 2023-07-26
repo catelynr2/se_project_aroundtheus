@@ -33,36 +33,31 @@ export default class Card {
     const previewImageCloseButton = document.querySelector(
       "#preview-image-close-button"
     );
-    // const cardImageEl = document.querySelector(".modal__large-view-image");
-    // const cardTitleEl = document.querySelector(".modal__preview-image-name");
 
-    this._cardImageEl = this._cardElement.querySelector(
-      ".modal__large-view-image"
-    );
+    this._cardImageEl = this._cardElement.querySelector(".card__image");
+    this._cardImageEl.src = this._link;
 
     this._cardImageEl.addEventListener("click", () => {
-      this._openModal("#preview-image-modal");
+      const imageModal = document.querySelector("#preview-image-modal");
+      const imageModalImage = document.querySelector(
+        ".modal__large-view-image"
+      );
+      imageModalImage.src = this._link;
+      const imageModalText = document.querySelector(
+        ".modal__preview-image-name"
+      );
+      imageModalText.textContent = this._name;
+
+      openModal(imageModal);
     });
 
-    this._cardTitleEl = this._cardElement.querySelector(
-      ".modal__preview-image-name"
-    );
+    this._cardTitleEl = this._cardElement.querySelector(".card__title");
+    this._cardTitleEl.textContent = this._name;
 
-    this._cardTitleEl.addEventListener("click", () => {
-      this._openModal();
-    });
+    // this._cardTitleEl.addEventListener("click", () => {
 
-    // this._cardImageEl
-    //   .querySelector(".modal__large-view-image")
-    //   .addEventListener("click", () => {
-    //     this._openModal("#preview-image-modal");
-    //   });
-
-    // this._cardTitleEl
-    //   .querySelector(".modal__preview-image-name")
-    //   .addEventListener("click", () => {
-    //     this._openModal();
-    //   });
+    // openModal(imageModalText);
+    // });
   }
 
   _handleLikeIcon() {
