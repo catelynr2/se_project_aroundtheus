@@ -39,6 +39,7 @@ export default class Card {
     const imageModal = document.querySelector("#preview-image-modal");
     const imageModalImage = document.querySelector(".modal__large-view-image");
     imageModalImage.src = this._link;
+    imageModalImage.alt = this._name;
     const imageModalText = document.querySelector(".modal__preview-image-name");
     imageModalText.textContent = this._name;
 
