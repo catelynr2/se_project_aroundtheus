@@ -28,36 +28,21 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleDeleteCard();
       });
+
     //open preview image
-    const previewImageModal = document.querySelector("#preview-image-modal");
-    const previewImageCloseButton = document.querySelector(
-      "#preview-image-close-button"
-    );
-
-    this._cardImageEl = this._cardElement.querySelector(".card__image");
-    this._cardImageEl.src = this._link;
-
     this._cardImageEl.addEventListener("click", () => {
-      const imageModal = document.querySelector("#preview-image-modal");
-      const imageModalImage = document.querySelector(
-        ".modal__large-view-image"
-      );
-      imageModalImage.src = this._link;
-      const imageModalText = document.querySelector(
-        ".modal__preview-image-name"
-      );
-      imageModalText.textContent = this._name;
-
-      openModal(imageModal);
+      this._handleImageClick();
     });
+  }
 
-    this._cardTitleEl = this._cardElement.querySelector(".card__title");
-    this._cardTitleEl.textContent = this._name;
+  _handleImageClick() {
+    const imageModal = document.querySelector("#preview-image-modal");
+    const imageModalImage = document.querySelector(".modal__large-view-image");
+    imageModalImage.src = this._link;
+    const imageModalText = document.querySelector(".modal__preview-image-name");
+    imageModalText.textContent = this._name;
 
-    // this._cardTitleEl.addEventListener("click", () => {
-
-    // openModal(imageModalText);
-    // });
+    openModal(imageModal);
   }
 
   _handleLikeIcon() {
@@ -82,6 +67,13 @@ export default class Card {
     //get the card
     this._cardElement = this._getCardElement();
     //set event listeners
+    this._cardImageEl = this._cardElement.querySelector(".card__image");
+    this._cardImageEl.src = this._link;
+    this._cardImageEl.alt = this._name;
+
+    this._cardTitleEl = this._cardElement.querySelector(".card__title");
+    this._cardTitleEl.textContent = this._name;
+
     this._setEventListeners();
     // Return the element
     return this._cardElement;
