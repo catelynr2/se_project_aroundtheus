@@ -78,35 +78,6 @@ function renderCard(cardData) {
   cardListElement.prepend(cardElement);
 }
 
-// function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
-//   const likeButton = cardElement.querySelector(".card__like-button");
-//   const deleteButton = cardElement.querySelector(".card__delete-button");
-
-//   likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("card__like-button_active");
-//   });
-//   deleteButton.addEventListener("click", () => {
-//     cardElement.remove();
-//   });
-
-//   cardImageEl.addEventListener("click", () => {
-//     const cardImageEl = document.querySelector(".modal__large-view-image");
-//     const cardTitleEl = document.querySelector(".modal__preview-image-name");
-//     cardImageEl.src = cardData.link;
-//     cardImageEl.alt = cardData.name;
-//     cardTitleEl.textContent = cardData.name;
-//     openModal(document.querySelector("#preview-image-modal"));
-//   });
-
-//   cardImageEl.src = cardData.link;
-//   cardImageEl.alt = cardData.name;
-//   cardTitleEl.textContent = cardData.name;
-//   return cardElement;
-// }
-
 // Event Handlers
 function handleProfileEditSubmit(e) {
   e.preventDefault();
