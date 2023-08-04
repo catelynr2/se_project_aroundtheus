@@ -1,8 +1,8 @@
-import Card from "../../components/Card.js";
-import FormValidator from "../../components/FormValidator.js";
-import { configObj } from "../../utils/constants.js";
-import { openModal } from "../../utils/utils.js";
-import { closePopUp } from "../../utils/utils.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import { configObj } from "../utils/constants.js";
+import { openModal } from "../utils/utils.js";
+import { closePopUp } from "../utils/utils.js";
 import "./pages/index.css";
 
 const initialCards = [
