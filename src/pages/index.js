@@ -5,7 +5,7 @@ import { openModal } from "../utils/utils.js";
 import { closePopUp } from "../utils/utils.js";
 import "./index.css";
 import logoSrc from "../images/logo.svg";
-import yosemiteImage from "../images/yosemite-valley.png";
+// import yosemiteImage from "../images/yosemite-valley.png";
 // import lakeLouiseImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg";
 // import baldMountainsImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg";
 // import latemarImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg";
