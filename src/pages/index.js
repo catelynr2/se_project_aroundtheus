@@ -3,36 +3,67 @@ import FormValidator from "../components/FormValidator.js";
 import { configObj } from "../utils/constants.js";
 import { openModal } from "../utils/utils.js";
 import { closePopUp } from "../utils/utils.js";
-import "./pages/index.css";
+import "./index.css";
+import logoSrc from "../images/logo.svg";
+import yosemiteImage from "../images/yosemite-valley.png";
+// import lakeLouiseImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg";
+// import baldMountainsImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg";
+// import latemarImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg";
+// import vanoiseImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg";
+// import lagoImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg.jpg";
+
+const yosemiteImage = new URL("../images/yosemete-valley.png", import.meta.url);
+const lakeLouiseImage = new URL(
+  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+  import.meta.url
+);
+const baldMountainsImage = new URL(
+  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+  import.meta.url
+);
+const latemarImage = new URL(
+  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+  import.meta.url
+);
+const vanoiseImage = new URL(
+  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+  import.meta.url
+);
+const lagoImage = new URL(
+  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg.jpg",
+  import.meta.url
+);
 
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    link: yosemiteImage,
   },
   {
     name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+    link: lakeLouiseImage,
   },
   {
     name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+    link: baldMountainsImage,
   },
   {
     name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+    link: latemarImage,
   },
   {
     name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+    link: vanoiseImage,
   },
   {
     name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+    link: lagoImage,
   },
 ];
 
 // Elements
+const logoImage = document.getElementById("image-logo");
+logoImage.src = logoSrc;
 const modal = document.querySelectorAll(".modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");

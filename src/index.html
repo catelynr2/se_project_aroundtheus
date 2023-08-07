@@ -15,14 +15,18 @@
   <body class="page">
     <div class="page__content">
       <header class="header page__width">
-        <img src="./images/logo.svg" alt="Around the U.S logo" class="logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Around the U.S logo"
+          class="logo"
+        />
       </header>
 
       <main class="content">
         <section class="profile page__width">
           <img
             class="profile__avatar"
-            src="./images/jacques-cousteau.png"
+            src="<%= require('./images/jacques-cousteau.png')%>"
             alt="avatar"
           />
           <div class="profile__info">
