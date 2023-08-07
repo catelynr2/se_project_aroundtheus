@@ -13,26 +13,17 @@ import yosemiteImage from "../images/yosemite-valley.png";
 // import lagoImage from "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg.jpg";
 
 const yosemiteImage = new URL("../images/yosemete-valley.png", import.meta.url);
-const lakeLouiseImage = new URL(
-  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  import.meta.url
-);
+const lakeLouiseImage = new URL("../images/lake-louise.png", import.meta.url);
 const baldMountainsImage = new URL(
-  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+  "../images/bald-mountains.png",
   import.meta.url
 );
-const latemarImage = new URL(
-  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  import.meta.url
-);
+const latemarImage = new URL("../images/latemar.png", import.meta.url);
 const vanoiseImage = new URL(
-  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+  "../images/vanoise-national-park.png",
   import.meta.url
 );
-const lagoImage = new URL(
-  "../images/https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg.jpg",
-  import.meta.url
-);
+const lagoImage = new URL("../images/lago-di-braies.png", import.meta.url);
 
 const initialCards = [
   {
