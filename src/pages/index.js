@@ -4,7 +4,6 @@ import { configObj } from "../utils/constants.js";
 import { openModal } from "../utils/utils.js";
 import { closePopUp } from "../utils/utils.js";
 import "./index.css";
-import logoSrc from "../images/logo.svg";
 
 const initialCards = [
   {
@@ -34,8 +33,6 @@ const initialCards = [
 ];
 
 // Elements
-const logoImage = document.getElementById("image-logo");
-logoImage.src = logoSrc;
 const modal = document.querySelectorAll(".modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
