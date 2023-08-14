@@ -8,8 +8,10 @@ class PopupWithImage extends Popup {
   }
 
   open() {
-    this._popupImage.querySelector("#preview-image").src = this._link;
-    this._popupImage.querySelector("#preview-image").alt = this._link;
+    this._popupImage.querySelector(".modal__large-view-image").src = this._link;
+    this._popupImage.querySelector(".modal__large-view-image").alt = this._name;
+    this._popupImage.querySelector(".modal__preview-image-name").textContent =
+      this._name;
     super.open();
   }
 }
