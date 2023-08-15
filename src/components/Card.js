@@ -1,10 +1,11 @@
 import { openModal } from "../utils/utils.js";
 
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _getTemplate() {
@@ -31,20 +32,20 @@ export default class Card {
 
     //open preview image
     this._cardImageEl.addEventListener("click", () => {
-      this._handleImageClick();
+      this._handleImageClick(this._name, this._link);
     });
   }
 
-  _handleImageClick() {
-    const imageModal = document.querySelector("#preview-image-modal");
-    const imageModalImage = document.querySelector(".modal__large-view-image");
-    imageModalImage.src = this._link;
-    imageModalImage.alt = this._name;
-    const imageModalText = document.querySelector(".modal__preview-image-name");
-    imageModalText.textContent = this._name;
+  // _handleImageClick() {
+  //   const imageModal = document.querySelector("#preview-image-modal");
+  //   const imageModalImage = document.querySelector(".modal__large-view-image");
+  //   imageModalImage.src = this._link;
+  //   imageModalImage.alt = this._name;
+  //   const imageModalText = document.querySelector(".modal__preview-image-name");
+  //   imageModalText.textContent = this._name;
 
-    openModal(imageModal);
-  }
+  //   openModal(imageModal);
+  // }
 
   _handleLikeIcon() {
     this._cardElement

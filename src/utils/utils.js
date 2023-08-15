@@ -3,11 +3,11 @@ import { cardListElement } from "./constants";
 
 const modal = document.querySelectorAll(".modal");
 
-export function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template");
-  const cardElement = card.generateCard();
-  cardListElement.prepend(cardElement);
-}
+// export function renderCard(cardData) {
+//   const card = new Card(cardData, "#card-template");
+//   const cardElement = card.generateCard();
+//   cardListElement.prepend(cardElement);
+// }
 
 // export function openModal(modal) {
 //   modal.classList.add("modal_opened");

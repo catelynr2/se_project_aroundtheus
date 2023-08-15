@@ -1,6 +1,8 @@
 // import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import FormValidator from "../components/FormValidator.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
 import { configObj } from "../utils/constants.js";
 import { openModal } from "../utils/utils.js";
 import { closePopUp } from "../utils/utils.js";
@@ -72,11 +74,13 @@ function handleNewCardSubmit(e) {
   addCardFormValidator.resetButtonState();
 }
 
-// function renderCard(cardData) {
-//   const card = new Card(cardData, "#card-template");
-//   const cardElement = card.generateCard();
-//   cardListElement.prepend(cardElement);
-// }
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
+  const cardElement = card.generateCard();
+  cardListElement.prepend(cardElement);
+}
+
+function handleImageClick(name, link) {}
 
 // Event Listeners
 profileEditButton.addEventListener("click", () => {
