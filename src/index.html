@@ -57,10 +57,15 @@
           id="modal-close-button"
         ></button>
         <p class="modal__heading">Edit profile</p>
-        <form class="modal__form" id="profile-edit-form" novalidate>
+        <form
+          class="modal__form"
+          name="profile-edit-form"
+          id="profile-edit-form"
+          novalidate
+        >
           <input
             type="text"
-            class="modal__input"
+            class="modal__input modal__input_type_username"
             id="profile-title-input"
             name="title"
             placeholder="Title"
@@ -71,7 +76,7 @@
           <span class="modal__error" id="profile-title-input-error"></span>
           <input
             type="text"
-            class="modal__input"
+            class="modal__input modal__input_type_userjob"
             id="profile-description-input"
             name="description"
             placeholder="Descripton"
@@ -97,12 +102,17 @@
           id="add-card-close-button"
         ></button>
         <h2 class="modal__heading">New place</h2>
-        <form class="modal__form" id="add-card-form" novalidate>
+        <form
+          class="modal__form"
+          name="add-card-form"
+          id="add-card-form"
+          novalidate
+        >
           <input
             type="text"
             class="modal__input"
             id="add-card-title-input"
-            name="title"
+            name="name"
             placeholder="Title"
             required
             minlength="1"
@@ -113,7 +123,7 @@
             type="url"
             class="modal__input"
             id="add-card-url-input"
-            name="url"
+            name="link"
             placeholder="Image Link"
             required
           />

@@ -1,17 +1,16 @@
-import { openModal } from "../utils/utils.js";
-
 export default class Card {
-  constructor(data, cardSelector, handleImageClick) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
-      .content.cloneNode(true);
+      .content.querySelector(".card")
+      .cloneNode(true);
 
     return cardElement;
   }
@@ -32,11 +31,11 @@ export default class Card {
 
     //open preview image
     this._cardImageEl.addEventListener("click", () => {
-      this._handleImageClick(this._name, this._link);
+      this._handleCardClick(this._name, this._link);
     });
   }
 
-  // _handleImageClick() {
+  // _handleCardClick() {
   //   const imageModal = document.querySelector("#preview-image-modal");
   //   const imageModalImage = document.querySelector(".modal__large-view-image");
   //   imageModalImage.src = this._link;
@@ -65,7 +64,7 @@ export default class Card {
       .cloneNode(true);
   }
 
-  generateCard() {
+  generateDefaultCard() {
     //get the card
     this._cardElement = this._getCardElement();
     //set event listeners

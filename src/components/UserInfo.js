@@ -1,9 +1,19 @@
 export default class UserInfo {
-  constructor({ userName, userJob }) {
-    this._userName = this._popupElement.querySelector("#preview-image-modal");
+  constructor(userNameSelector, userJobSelector) {
+    this._userNameElement = document.querySelector(userNameSelector);
+    this._userJobElement = document.querySelector(userJobSelector);
   }
 
-  getUserInfo() {}
+  getUserInfo() {
+    const userInfo = {
+      name: this._userNameElement.textContent,
+      job: this._userJobElement.textContent,
+    };
+    return userInfo;
+  }
 
-  setUserInfo() {}
+  setUserInfo(data) {
+    this._userNameElement.textContent = data.title;
+    this._userJobElement.textContent = data.description;
+  }
 }
