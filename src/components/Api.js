@@ -19,7 +19,11 @@ class Api {
 
   // other methods for working with the API
   getUserInfo() {
-    fetch("https://around-api.en.tripleten-services.com/v1/users/me");
+    fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+      headers: {
+        authorization: "9a60ea94-9d34-4f3e-83e3-c406b7fc4ac5",
+      },
+    });
   }
 }
 
@@ -41,5 +45,5 @@ api
   });
 
 function renderCards() {
-  return Promise.all({ userInfo }, cardsList);
+  return Promise.all(userInfo, cardsList);
 }
