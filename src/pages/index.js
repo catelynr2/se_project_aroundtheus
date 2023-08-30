@@ -13,6 +13,7 @@ import {
 } from "../utils/constants.js";
 import "./index.css";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 
 const handleCardClick = (name, link) => {
   previewImageModal.open(name, link);
@@ -33,6 +34,23 @@ const cardList = new Section(
 );
 
 cardList.renderItems(initialCards);
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "9a60ea94-9d34-4f3e-83e3-c406b7fc4ac5",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
 
 // Event Handlers
 function handleProfileEditSubmit(inputs) {
