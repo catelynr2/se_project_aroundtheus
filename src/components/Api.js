@@ -8,9 +8,9 @@ export default class Api {
       headers: {
         authorization: "9a60ea94-9d34-4f3e-83e3-c406b7fc4ac5",
         "Content-Type": "application/json",
-        name: "",
-        link: "",
-        _id: "",
+        // name: "",
+        // link: "",
+        // _id: "",
       },
     }).then((res) => {
       if (res.ok) {
