@@ -1,11 +1,14 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
-  constructor({ popupSelector, handleConfirm }) {
+  constructor({ popupSelector }) {
     super(popupSelector);
     this._confirmButton = this._popupElement.querySelector(
       ".modal__save-button"
     );
+  }
+
+  setAction(handleConfirm) {
     this._handleConfirm = handleConfirm;
   }
 
@@ -23,5 +26,13 @@ export default class PopupWithConfirmation extends Popup {
         this.close();
       });
     });
+  }
+
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
   }
 }

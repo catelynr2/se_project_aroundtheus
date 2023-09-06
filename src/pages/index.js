@@ -37,8 +37,8 @@ const handleConfirm = (card, cardId) => {
 
 const deleteCardModal = new PopupWithConfirmation({
   popupSelector: ".modal_delete-card",
-  handleConfirm: handleConfirm,
 });
+deleteCardModal.setAction(handleConfirm);
 deleteCardModal.setEventListeners();
 
 const handleCardClick = (name, link) => {
@@ -49,17 +49,38 @@ const handleDeleteIcon = (card, cardId) => {
   deleteCardModal.open(card, cardId);
 };
 
+const handleLikeClick = (card) => {
+  api
+    .likeCard(card.getId())
+    .then((res) => {
+      card.setLike(res.isLiked);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+const handleUnlikeClick = (card) => {
+  api
+    .unlikeCard(card.getId())
+    .then((res) => {
+      card.setLike(res.isLiked);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 function renderCard(cardData) {
   const card = new Card({
     data: cardData,
     cardSelector: "#card-template",
     handleCardClick: handleCardClick,
     handleDeleteIcon: handleDeleteIcon,
+    handleLikeClick: handleLikeClick,
+    handleUnlikeClick: handleUnlikeClick,
     confirmPopup: deleteCardModal,
-    api: api,
   });
-  // const cardElement = card.generateDefaultCard();
-  // cardListElement.prepend(cardElement);
   cardList.addItem(card.generateDefaultCard());
 }
 
@@ -69,12 +90,6 @@ const cardList = new Section(
   },
   cardListSelector
 );
-
-// cardList.renderItems(initialCards);
-
-// function renderCards() {
-//   return Promise.all(userInfo, cardsList);
-// }
 
 const userInfo = new UserInfo(
   ".profile__title",
@@ -86,6 +101,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
     // take  user data from api and render to profile section
     userInfo.setUserInfo(userData);
+    userInfo.setAvatar(userData);
     // take initial cards from api and render to card section
     cardList.renderItems(cards.reverse());
   })
@@ -97,13 +113,14 @@ const editAvatarModal = new PopupWithForm("#profile-edit-avatar", (link) => {
   return api
     .updateAvatar(link)
     .then((res) => {
-      userInfo.setUserInfo(res);
+      userInfo.setAvatar(res);
     })
     .catch((err) => {
       console.error(err);
     });
 });
 editAvatarModal.setEventListeners();
+editAvatarModal.renderLoading();
 
 document
   .querySelector(".profile__avatar-overlay")
@@ -112,25 +129,13 @@ document
     editAvatarModal.open();
   });
 
-// api.getUserInfo().then((res) => {
-//   console.log(res);
-// });
-
-// api
-//   .getInitialCards()
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.error(err); // log the error to the console
-//   });
-
 // Event Handlers
 function handleProfileEditSubmit(inputs) {
   return api
     .updateUserInfo(inputs)
     .then((res) => {
       userInfo.setUserInfo(res);
+      userInfo.setAvatar(res);
     })
     .catch((err) => {
       console.error(err);
@@ -153,12 +158,14 @@ const addNewCardModal = new PopupWithForm(
   handleNewCardSubmit
 );
 addNewCardModal.setEventListeners();
+addNewCardModal.renderLoading();
 
 const profileEditModal = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
 );
 profileEditModal.setEventListeners();
+profileEditModal.renderLoading();
 
 const previewImageModal = new PopupWithImage(".modal_preview-image");
 previewImageModal.setEventListeners();
