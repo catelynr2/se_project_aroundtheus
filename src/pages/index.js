@@ -172,14 +172,12 @@ const addNewCardModal = new PopupWithForm(
   handleNewCardSubmit
 );
 addNewCardModal.setEventListeners();
-addNewCardModal.renderLoading();
 
 const profileEditModal = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
 );
 profileEditModal.setEventListeners();
-profileEditModal.renderLoading();
 
 const previewImageModal = new PopupWithImage(".modal_preview-image");
 previewImageModal.setEventListeners();
