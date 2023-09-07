@@ -6,33 +6,27 @@ export default class PopupWithConfirmation extends Popup {
     this._confirmButton = this._popupElement.querySelector(
       ".modal__save-button"
     );
+    this._confirmButtonText = this._confirmButton.textContent;
   }
 
   setAction(handleConfirm) {
     this._handleConfirm = handleConfirm;
   }
 
-  open(card, cardId) {
-    super.open();
-    this._card = card;
-    this._cardId = cardId;
-  }
-
   setEventListeners() {
     super.setEventListeners();
 
-    this._confirmButton.addEventListener("click", () => {
-      this._handleConfirm(this._card, this._cardId).then(() => {
-        this.close();
-      });
+    this._confirmButton.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      this._handleConfirm();
     });
   }
 
   renderLoading(isLoading, loadingText = "Saving...") {
     if (isLoading) {
-      this._submitButton.textContent = loadingText;
+      this._confirmButton.textContent = loadingText;
     } else {
-      this._submitButton.textContent = this._submitButtonText;
+      this._confirmButton.textContent = this._confirmButtonText;
     }
   }
 }

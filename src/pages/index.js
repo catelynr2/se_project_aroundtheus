@@ -24,29 +24,30 @@ const api = new Api({
   },
 });
 
-const handleConfirm = (card, cardId) => {
-  return api
-    .deleteCard(cardId)
-    .then(() => {
-      card.handleDeleteCard();
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
-
 const deleteCardModal = new PopupWithConfirmation({
   popupSelector: ".modal_delete-card",
 });
-deleteCardModal.setAction(handleConfirm);
 deleteCardModal.setEventListeners();
 
 const handleCardClick = (name, link) => {
   previewImageModal.open(name, link);
 };
 
-const handleDeleteIcon = (card, cardId) => {
-  deleteCardModal.open(card, cardId);
+const handleDeleteIcon = (card) => {
+  deleteCardModal.open();
+  deleteCardModal.setAction(() => {
+    deleteCardModal.renderLoading(true);
+    api
+      .deleteCard(card.getId())
+      .then(() => {
+        deleteCardModal.renderLoading(false);
+        card.handleDeleteCard();
+        deleteCardModal.close();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
 };
 
 const handleLikeClick = (card) => {
@@ -110,9 +111,11 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   });
 
 const editAvatarModal = new PopupWithForm("#profile-edit-avatar", (link) => {
-  return api
+  editAvatarModal.renderLoading(true);
+  api
     .updateAvatar(link)
     .then((res) => {
+      editAvatarModal.renderLoading(false);
       userInfo.setAvatar(res);
     })
     .catch((err) => {
@@ -120,7 +123,6 @@ const editAvatarModal = new PopupWithForm("#profile-edit-avatar", (link) => {
     });
 });
 editAvatarModal.setEventListeners();
-editAvatarModal.renderLoading();
 
 document
   .querySelector(".profile__avatar-overlay")
@@ -131,9 +133,11 @@ document
 
 // Event Handlers
 function handleProfileEditSubmit(inputs) {
-  return api
+  profileEditModal.renderLoading(true);
+  api
     .updateUserInfo(inputs)
     .then((res) => {
+      profileEditModal.renderLoading(false);
       userInfo.setUserInfo(res);
       userInfo.setAvatar(res);
     })
@@ -143,9 +147,11 @@ function handleProfileEditSubmit(inputs) {
 }
 
 function handleNewCardSubmit(inputs) {
-  return api
+  addNewCardModal.renderLoading(true);
+  api
     .addCard(inputs)
     .then((res) => {
+      addNewCardModal.renderLoading(false);
       renderCard(res);
     })
     .catch((err) => {
