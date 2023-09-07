@@ -26,8 +26,14 @@
           <img
             class="profile__avatar"
             src="<%= require('./images/jacques-cousteau.png')%>"
-            alt="avatar"
+            alt="saving failed"
           />
+          <div class="profile__avatar-overlay">
+            <img
+              src="<%=require('./images/pencil.svg')%>"
+              class="profile__edit-avatar"
+            />
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -46,6 +52,35 @@
       <footer class="footer">
         <p class="footer__copyright">&#169; 2022 Around the U.S.</p>
       </footer>
+    </div>
+
+    <!-- Edit avatar -->
+    <div class="modal modal_edit-avatar" id="profile-edit-avatar">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="modal-close-button"
+        ></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form
+          class="modal__form"
+          name="profile-edit-avatar"
+          id="profile-edit-avatar"
+          novalidate
+        >
+          <input
+            type="url"
+            class="modal__input modal__input_type_avatar"
+            id="profile-avatar-input"
+            name="avatar"
+            required
+          />
+          <span class="modal__error" id="profile-avatar-input-error"></span>
+
+          <button class="modal__save-button" type="submit">Save</button>
+        </form>
+      </div>
     </div>
 
     <!-- Edit modal -->
@@ -136,6 +171,25 @@
             Save
           </button>
         </form>
+      </div>
+    </div>
+
+    <!--Delete card modal-->
+    <div class="modal modal_delete-card" id="delete-card-modal">
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-button"
+          id="delete-card-close-button"
+        ></button>
+        <h3 class="modal__heading">Are you sure?</h3>
+        <button
+          class="modal__save-button"
+          type="submit"
+          id="delete-card-yes-button"
+        >
+          Yes
+        </button>
       </div>
     </div>
 
