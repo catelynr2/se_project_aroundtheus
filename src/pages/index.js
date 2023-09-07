@@ -40,12 +40,14 @@ const handleDeleteIcon = (card) => {
     api
       .deleteCard(card.getId())
       .then(() => {
-        deleteCardModal.renderLoading(false);
         card.handleDeleteCard();
         deleteCardModal.close();
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        deleteCardModal.renderLoading(false);
       });
   });
 };
@@ -115,11 +117,13 @@ const editAvatarModal = new PopupWithForm("#profile-edit-avatar", (link) => {
   api
     .updateAvatar(link)
     .then((res) => {
-      editAvatarModal.renderLoading(false);
       userInfo.setAvatar(res);
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      editAvatarModal.renderLoading(false);
     });
 });
 editAvatarModal.setEventListeners();
@@ -137,12 +141,14 @@ function handleProfileEditSubmit(inputs) {
   api
     .updateUserInfo(inputs)
     .then((res) => {
-      profileEditModal.renderLoading(false);
       userInfo.setUserInfo(res);
       userInfo.setAvatar(res);
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      profileEditModal.renderLoading(false);
     });
 }
 
@@ -151,11 +157,13 @@ function handleNewCardSubmit(inputs) {
   api
     .addCard(inputs)
     .then((res) => {
-      addNewCardModal.renderLoading(false);
       renderCard(res);
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
+      addNewCardModal.renderLoading(false);
     });
 }
 
